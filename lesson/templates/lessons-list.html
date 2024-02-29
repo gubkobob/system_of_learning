@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+
+
+{% block title %}
+    Lessons list
+{% endblock %}
+
+
+    {% block body %}
+        <h1> Lessons from product {{ product }}: </h1>
+        {% if lessons %}
+            <div>
+                {% for lesson in lessons %}
+                    <div>
+                        <h2><p>Name: {{ lesson.name }}</p></h2>
+                        <p>Video: {{ lesson.video_link}}</p>
+                    </div>
+                {% endfor %}
+
+            </div>
+
+        {% else %}
+            <h3>No lessons or not paid for this product</h3>
+        {% endif %}
+
+
+
+    {% endblock %}

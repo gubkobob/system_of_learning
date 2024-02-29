@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+
+
+{% block title %}
+    Products list
+{% endblock %}
+
+
+    {% block body %}
+        <h1> Products: </h1>
+        {% if products %}
+            <div>
+                {% for product in products %}
+                    <div>
+                        <h2><p>Name: {{ product.name }}</p></h2>
+                        <p>Started: {{ product.started }}</p>
+                        <p>Author: {{ product.author }}</p>
+                        <p>Price: {{ product.price }}</p>
+                        <p>Min_members: {{ product.min_members }}</p>
+                        <p>Max_members: {{ product.max_members }}</p>
+                        <p>Number of lessons: {{ product.num_lessons }}</p>
+                    </div>
+                {% endfor %}
+
+            </div>
+
+        {% else %}
+            <h3>No products yet</h3>
+        {% endif %}
+
+
+
+    {% endblock %}
