@@ -7,6 +7,6 @@ from lesson.models import Lesson
 class ProductAdmin(admin.ModelAdmin):
     """Админ панель модели Урок"""
 
-    list_display = "id", "video_link", "name", "product"
-    list_display_links = ("name",)
-    search_fields = ("name",)
+    list_display = 'id', 'video_link', 'name', 'product'
+    list_display_links = ('name',)
+    search_fields = ('name',)

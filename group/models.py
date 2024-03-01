@@ -16,17 +16,17 @@ class Group_students(models.Model):
     product = models.ForeignKey(
         Product,
         on_delete=models.CASCADE,
-        verbose_name="К какому продукту относится группа",
-        related_name="groups",
+        verbose_name='К какому продукту относится группа',
+        related_name='groups',
     )
     members = models.ManyToManyField(User, blank=True)
 
     class Meta:
-        verbose_name = "группа"
-        verbose_name_plural = "группы"
+        verbose_name = 'группа'
+        verbose_name_plural = 'группы'
         ordering = [
-            "name",
+            'name',
         ]
 
     def __str__(self) -> str:
-        return f"{self.name}"
+        return f'{self.name}'

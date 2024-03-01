@@ -1,0 +1,31 @@
+version: "3.9"
+
+services:
+
+  app:
+    restart: always
+    build:
+      dockerfile: ./Dockerfile
+      context: .
+    volumes:
+      - db-data:/app
+      - ./db.sqlite3:/code
+    ports:
+      - "8000:8000"
+    depends_on:
+      - sqlite3
+    command: bash -c "python manage.py makemigrations --noinput && python manage.py migrate --noinput &&  python manage.py runserver 0.0.0.0:8000"
+
+  sqlite3:
+    container_name: sqlite3_container
+    image: nouchka/sqlite3:latest
+    stdin_open: true
+    tty: true
+    volumes:
+      - db-data:/app
+    ports:
+      - '9000:9000'
+    restart: unless-stopped
+
+volumes:
+  db-data:
