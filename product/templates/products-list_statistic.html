@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+
+
+{% block title %}
+    Products list statistic
+{% endblock %}
+
+
+    {% block body %}
+        <h1> Products: </h1>
+        {% if products %}
+            <div>
+                {% for product in products %}
+                    <div>
+                        <h2><p>Name: {{ product.name }}</p></h2>
+                        <p>Number of students: {{ product.num_students }}</p>
+                        <p>Avg procent of filled groups: {{ product.avg_filled }}</p>
+                        <p>Percentage of product purchase: {{ product.pers_purchase}}</p>
+
+
+                    </div>
+                {% endfor %}
+
+            </div>
+
+        {% else %}
+            <h3>No products yet</h3>
+        {% endif %}
+
+
+
+    {% endblock %}
